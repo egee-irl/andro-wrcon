@@ -23,4 +23,4 @@ USER androgee
 WORKDIR /home/androgee
 RUN npm install
 
-CMD ["node", "main.js"]
+CMD ["coffee", "main.coffee"]
