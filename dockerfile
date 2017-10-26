@@ -1,3 +1,4 @@
+#TODO SED envvars
 FROM node:8.6.0
 ENV MINECRAFT_IP=''
 ENV MINECRAFT_PORT=''
