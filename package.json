@@ -1,0 +1,23 @@
+{
+  "name": "andro-wrcon",
+  "version": "1.0.0",
+  "description": "wrcon helper for egee.io",
+  "main": "main.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egee-irl/andro-wrcon.git"
+  },
+  "author": "egee",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/egee-irl/andro-wrcon/issues"
+  },
+  "homepage": "https://github.com/egee-irl/andro-wrcon#readme",
+  "dependencies": {
+    "redis": "^2.7.1",
+    "webrconjs": "^1.0.0"
+  }
+}
