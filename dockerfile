@@ -21,6 +21,7 @@ RUN chown -R androgee /home/androgee
 
 USER androgee
 WORKDIR /home/androgee
+RUN npm install -g coffeescript
 RUN npm install
 
 CMD ["coffee", "main.coffee"]
