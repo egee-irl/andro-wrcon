@@ -7,7 +7,7 @@ rcon.on 'connect', -> console.log 'Connected!'
 rcon.on 'disconnect', -> console.log 'Disconnected :('
 rcon.on 'error', (err) -> console.log 'ERROR: ' + err
 
-redis = Redis.createClient( { host: 'localhost' } )
+redis = Redis.createClient( { host: process.env.REDIS } )
 redis.subscribe 'RustCommands'
 redis.on 'error', (err) -> console.log(err)
 redis.on 'message', (channel, message) ->
