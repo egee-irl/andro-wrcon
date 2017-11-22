@@ -21,7 +21,9 @@ wRcon.on "message", (msg) ->
     playerJoin = msg.message.replace(/\[.*\]/, "")
     rustChannel.fetchMessage(rustChannel.lastMessageID)
     .then (message) ->
-      console.log 'equality' if playerJoin != message.content
+      rustChannel.send(playerJoin) if playerJoin != message.content
+    .catch (console.error)
+  else console.log(msg.message)
 
 # wRcon.run("say " + message, 0) if message.includes("has entered the game")
 # wRcon.run("env.time 9", 0) if message.includes("rust time")

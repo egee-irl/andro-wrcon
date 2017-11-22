@@ -19,10 +19,6 @@
     return rustChannel = discord.channels.find("name", "rust-server");
   });
 
-  // rustChannel.fetchMessage(rustChannel.lastMessageID)
-  // .then (message) ->
-  //   previousMessage = message.content
-  //   console.log previousMessage
   wRcon = new WebRcon(process.env.RUST_IP, 28016);
 
   wRcon.connect(process.env.RUST_PASSWORD);
@@ -45,20 +41,13 @@
       playerJoin = msg.message.replace(/\[.*\]/, "");
       return rustChannel.fetchMessage(rustChannel.lastMessageID).then(function(message) {
         if (playerJoin !== message.content) {
-          return console.log('equality');
+          return rustChannel.send(playerJoin);
         }
-      });
+      }).catch(console.error);
+    } else {
+      return console.log(msg.message);
     }
   });
-
-  // console.log 'test' if playerJoin == message.content
-
-  // rustChannel.fetchMessage(rustChannel.lastMessageID)
-  // .then (message) ->
-  //   console.log message.content
-  //   previousMessage = message.content
-  //   rustChannel.send (playerJoin) if previousMessage != playerJoin
-  //   console.log (playerJoin)
 
   // wRcon.run("say " + message, 0) if message.includes("has entered the game")
   // wRcon.run("env.time 9", 0) if message.includes("rust time")
