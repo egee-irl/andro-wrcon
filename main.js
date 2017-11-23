@@ -19,11 +19,9 @@
   discord.on("ready", function() {
     debugChannel = discord.channels.find("name", "debug");
     rustChannel = discord.channels.find("name", "rust-server");
-    return wRcon();
+    return wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD);
   });
 
-  // wRcon.run("say " + message, 0) if message.includes("has entered the game")
-  // wRcon.run("env.time 9", 0) if message.includes("rust time")
   errorNotification = function(error) {
     if (reoccuringErrors > 10) {
       process.exit(1);
@@ -32,9 +30,9 @@
     return debugChannel.send(error).then(reoccuringErrors++);
   };
 
-  wRcon = function() {
-    wRcon = new WebRcon(process.env.RUST_IP, 28016);
-    wRcon.connect(process.env.RUST_PASSWORD);
+  wRcon = function(rustip, rustport, password) {
+    wRcon = new WebRcon(rustip, rustport);
+    wRcon.connect(password);
     wRcon.on("connect", function() {
       return console.log("Connected!");
     });
