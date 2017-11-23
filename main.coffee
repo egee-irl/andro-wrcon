@@ -1,23 +1,22 @@
-WebRcon = require("webrconjs")
 DiscordJs = require('discord.js')
-
-discord = new DiscordJs.Client()
-discord.login(process.env.PYGUY)
-
+WebRcon = require("webrconjs")
+reoccuringErrors = 0
 debugChannel = ""
 rustChannel  = ""
-reoccuringErrors = 0
-
-discord.on "ready", ->
-  debugChannel = discord.channels.find("name", "debug")
-  rustChannel = discord.channels.find("name", "rust-server")
-  wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD)
 
 errorNotification = (error) ->
   process.exit(1) if reoccuringErrors > 10
   console.log(error)
   debugChannel.send(error)
   .then(reoccuringErrors++)
+
+discordClient = (token) ->
+  discord = new DiscordJs.Client()
+  discord.login(token)
+  discord.on "ready", ->
+    debugChannel = discord.channels.find("name", "debug")
+    rustChannel = discord.channels.find("name", "rust-server")
+    wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD)
 
 wRcon = (rustip, rustport, password) ->
   wRcon = new WebRcon(rustip, rustport)
@@ -36,3 +35,5 @@ wRcon = (rustip, rustport, password) ->
           wRcon.run("say " + rustJoin, 0)
       .catch ((error) -> errorNotification(error))
     else console.log(msg.message)
+
+discordClient(process.env.PYGUY)
