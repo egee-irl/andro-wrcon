@@ -23,7 +23,7 @@
   discordClient = function(token) {
     var discord;
     discord = new DiscordJs.Client();
-    discord.login(token);
+    discord.login(token).then(console.log('Connected to Discord'));
     return discord.on("ready", function() {
       debugChannel = discord.channels.find("name", "debug");
       rustChannel = discord.channels.find("name", "rust-server");
@@ -35,10 +35,10 @@
     wRcon = new WebRcon(rustip, rustport);
     wRcon.connect(password);
     wRcon.on("connect", function() {
-      return console.log("Connected!");
+      return console.log("Connected to Rust Server");
     });
     wRcon.on("disconnect", function() {
-      return errorNotification("wRcon was disconnected");
+      return errorNotification("Disconnected from Rust Server");
     });
     wRcon.on("error", function(err) {
       return errorNotification(`wRcon ${err}`);
@@ -63,7 +63,7 @@
     });
   };
 
-  discordClient(process.env.PYGUY);
+  discordClient(process.env.DISCORD_TOKEN);
 
 }).call(this);
 
