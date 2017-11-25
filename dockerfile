@@ -1,18 +1,18 @@
 #TODO SED envvars
 FROM node:8.6.0
 
-ENV REDIS='_REDIS_'
-ENV RUST_IP='_RUSTIP_'
-ENV RUST_PORT='_RUSTPORT_'
-ENV RUST_PASSWORD='_RUSTPASSWORD_'
+ARG discord_token=_changeme_
+ARG rust_ip=_changeme_
+ARG rust_port=28016
+ARG rust_password=_changeme_
 
-RUN adduser androgee
-ADD . /home/androgee
-RUN chown -R androgee /home/androgee
+ENV DISCORD_TOKEN=${discord_token}
+ENV RUST_IP=${rust_ip}
+ENV RUST_PORT=$rust_port
+ENV RUST_PASSWORD=${rust_password}
 
-RUN npm install -g coffeescript
-USER androgee
-WORKDIR /home/androgee
+WORKDIR /
+ADD . /
 RUN npm install
 
-CMD ["coffee", "main.coffee"]
+CMD ["npm", "start"]
