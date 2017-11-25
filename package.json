@@ -6,7 +6,7 @@
   "scripts": {
     "build": "coffee -c -m main.coffee",
     "start": "coffee -c -m main.coffee && coffee main.coffee",
-    "test":  "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/egee-irl/andro-wrcon#readme",
   "dependencies": {
+    "coffeescript": "^2.0.2",
     "redis": "^2.7.1",
     "webrconjs": "^1.0.0"
   },
