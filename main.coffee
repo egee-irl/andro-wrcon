@@ -8,7 +8,6 @@ errorNotification = (error) ->
   process.exit(1) if reoccuringErrors > 10
   console.log(error)
   debugChannel.send(error)
-  console.log(error)
   .then(reoccuringErrors++)
 
 discordClient = (token) ->
