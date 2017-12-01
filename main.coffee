@@ -1,5 +1,7 @@
+SimpleRcon = require('simple-rcon')
 DiscordJs = require('discord.js')
 WebRcon = require("webrconjs")
+Events = require('./discordEvents.coffee')
 reoccuringErrors = 0
 debugChannel = ""
 rustChannel  = ""
@@ -19,6 +21,7 @@ discordClient = (token) ->
     debugChannel = discord.channels.find("name", "debug")
     rustChannel = discord.channels.find("name", "rust-server")
     wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD)
+    new Events(discord)
 
 wRcon = (rustip, rustport, password) ->
   wRcon = new WebRcon(rustip, rustport)
@@ -38,4 +41,13 @@ wRcon = (rustip, rustport, password) ->
       .catch ((error) -> errorNotification(error))
     else console.log(msg.message)
 
-discordClient(process.env.DISCORD_TOKEN)
+Minecraft = () ->
+  client = new SimpleRcon({
+    host: 'test',
+    port: 'test',
+    password: 'test',
+    timeout: 10000})
+  client.connect()
+  
+
+discordClient(process.env.NUEVO)
