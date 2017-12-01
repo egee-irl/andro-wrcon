@@ -1,0 +1,11 @@
+version: "3"
+services:
+  androgee:
+    build:
+      context: .
+      args:
+        discord_token: $DISCORD_TOKEN
+        rust_ip: $RUST_IP
+        rust_port: $RUST_PORT
+        rust_password: $RUST_PASSWORD
+
