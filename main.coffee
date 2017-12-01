@@ -50,4 +50,4 @@ Minecraft = () ->
   client.connect()
   
 
-discordClient(process.env.NUEVO)
+discordClient(process.env.DISCORD_TOKEN)
