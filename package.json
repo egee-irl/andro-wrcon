@@ -6,7 +6,7 @@
   "scripts": {
     "build": "coffee -c -m main.coffee",
     "start": "coffee -c -m main.coffee && coffee main.coffee",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "coffeelint main.coffee"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "webrconjs": "^1.0.0"
   },
   "devDependencies": {
+    "coffeelint": "^2.0.7",
     "discord.js": "^11.2.1"
   }
 }
