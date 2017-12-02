@@ -14,4 +14,4 @@
 **A:** It plugs into WebSockets & listens on Rcon endpoints and provides updates to a Discord server.
 
 ## Dependencies
-While androgee-coffee is written in CofeeScript, it is setup as a node module so you don't need to install CoffeeScript to run the bot. All you need is ``nodejs`` and ``npm``. Running ``npm install`` will install all the required node_modules, including CofeeeScript itself.
+While androgee-coffee is written in CofeeScript, it's setup as a node module so you don't need to install CoffeeScript to run it. All you need is ``nodejs`` and ``npm``. Running ``npm install`` will install all the required node modules, including CofeeeScript itself.
