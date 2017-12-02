@@ -6,15 +6,15 @@
 
   DiscordJs = require('discord.js');
 
-  WebRcon = require("webrconjs");
+  WebRcon = require('webrconjs');
 
   Events = require('./discordEvents.coffee');
 
   reoccuringErrors = 0;
 
-  debugChannel = "";
+  debugChannel = '';
 
-  rustChannel = "";
+  rustChannel = '';
 
   errorNotification = function(error) {
     if (reoccuringErrors > 10) {
@@ -28,10 +28,10 @@
     var discord;
     discord = new DiscordJs.Client();
     discord.login(token).catch(console.error);
-    return discord.on("ready", function() {
+    return discord.on('ready', function() {
       console.log('Connected to Discord Server');
-      debugChannel = discord.channels.find("name", "debug");
-      rustChannel = discord.channels.find("name", "rust-server");
+      debugChannel = discord.channels.find('name', 'debug');
+      rustChannel = discord.channels.find('name', 'rust-server');
       wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD);
       return new Events(discord);
     });
@@ -40,25 +40,25 @@
   wRcon = function(rustip, rustport, password) {
     wRcon = new WebRcon(rustip, rustport);
     wRcon.connect(password);
-    wRcon.on("connect", function() {
-      return console.log("Connected to Rust Server");
+    wRcon.on('connect', function() {
+      return console.log('Connected to Rust Server');
     });
-    wRcon.on("disconnect", function() {
-      return errorNotification("Disconnected from Rust Server");
+    wRcon.on('disconnect', function() {
+      return errorNotification('Disconnected from Rust Server');
     });
-    wRcon.on("error", function(err) {
-      return errorNotification(`wRcon ${err}`);
+    wRcon.on('error', function(err) {
+      return errorNotification('wRcon #{err}');
     });
-    return wRcon.on("message", function(msg) {
+    return wRcon.on('message', function(msg) {
       var playerJoin;
-      if (msg.message.includes("has entered the game")) {
-        playerJoin = msg.message.replace(/\[.*\]/, "");
+      if (msg.message.includes('has entered the game')) {
+        playerJoin = msg.message.replace(/\[.*\]/, '');
         return rustChannel.fetchMessage(rustChannel.lastMessageID).then(function(message) {
           var rustJoin;
           if (playerJoin !== message.content) {
             rustChannel.send(playerJoin);
-            rustJoin = playerJoin.replace("entered", "joined");
-            return wRcon.run("say " + rustJoin, 0);
+            rustJoin = playerJoin.replace('entered', 'joined');
+            return wRcon.run('say ' + rustJoin, 0);
           }
         }).catch((function(error) {
           return errorNotification(error);
@@ -72,15 +72,15 @@
   Minecraft = function() {
     var client;
     client = new SimpleRcon({
-      host: '192.168.1.53',
-      port: '25575',
-      password: 'egeeio',
+      host: 'test',
+      port: 'test',
+      password: 'test',
       timeout: 10000
     });
     return client.connect();
   };
 
-  discordClient(process.env.NUEVO);
+  discordClient(process.env.DISCORD_TOKEN);
 
 }).call(this);
 
