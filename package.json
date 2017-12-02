@@ -1,23 +1,23 @@
 {
-  "name": "andro-wrcon",
+  "name": "androgee-coffee",
   "version": "1.0.0",
-  "description": "wrcon helper for egee.io",
+  "description": "Androgee hopped up on Coffee ☕",
   "main": "main.coffee",
   "scripts": {
-    "build": "coffee -c -m main.coffee",
-    "start": "coffee -c -m main.coffee && coffee main.coffee",
-    "test": "coffeelint main.coffee"
+    "build": "coffee -c -m *.coffee",
+    "start": "coffee main.coffee",
+    "test": "coffeelint main.coffee; coffeelint discordEvents.coffee"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egee-irl/andro-wrcon.git"
+    "url": "git+https://github.com/egee-irl/androgee-coffee"
   },
   "author": "egee",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/egee-irl/andro-wrcon/issues"
+    "url": "https://github.com/egee-irl/androgee-coffee/issues"
   },
-  "homepage": "https://github.com/egee-irl/andro-wrcon#readme",
+  "homepage": "https://github.com/egee-irl/androgee-coffee",
   "dependencies": {
     "coffeescript": "^2.0.2",
     "redis": "^2.7.1",
