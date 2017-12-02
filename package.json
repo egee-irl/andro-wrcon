@@ -4,9 +4,9 @@
   "description": "Androgee hopped up on Coffee ☕",
   "main": "main.coffee",
   "scripts": {
-    "build": "coffee -c -m *.coffee",
+    "build": "coffee -c -m *.coffee; coffee -c -m ./lib/*.coffee",
     "start": "coffee main.coffee",
-    "test": "coffeelint main.coffee; coffeelint discordEvents.coffee"
+    "test": "coffeelint *.coffee; coffeelint ./lib/*.coffee"
   },
   "repository": {
     "type": "git",
