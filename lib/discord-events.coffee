@@ -5,6 +5,6 @@ class DiscordEvents
       msg = "**#{member.user.username}**  has joined the server! 👋"
       generalChannel.send(msg)
       .then(console.log(msg))
-      .catch(console.error)
+      .catch(console.error) 
 
 module.exports = DiscordEvents
