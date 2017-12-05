@@ -4,7 +4,9 @@ FROM node:8.6.0
 RUN adduser androgee
 WORKDIR /home/androgee
 COPY main.coffee main.coffee
-COPY discordEvents.coffee discordEvents.coffee
+COPY ./lib/discord-events.coffee lib/discord-events.coffee
+COPY ./lib/helpers.coffee lib/helpers.coffee
+COPY ./lib/rust-events.coffee lib/rust-events.coffee
 COPY package.json package.json
 RUN chown -R androgee:androgee /home/androgee
 USER androgee
