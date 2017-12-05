@@ -8,7 +8,7 @@ Helpers = require('./lib/helpers.coffee')
 discord = null
 helpers = null
 debugChannel = null
-rustChannel  = null
+rustChannel  =
 
 discordClient = (token) ->
   discord = new DiscordJs.Client()
