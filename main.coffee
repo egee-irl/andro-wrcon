@@ -27,4 +27,4 @@ wRcon = (rustip, rustport, password) ->
   new RustEvents(wRcon, helpers, discord)
 
 helpers = new Helpers()
-discordClient(process.env.PYGUY)
+discordClient(process.env.DISCORD_TOKEN)

@@ -19,7 +19,7 @@ ARG rust_password
 
 ENV DISCORD_TOKEN=${discord_token}
 ENV RUST_IP=${rust_ip}
-ENV RUST_PORT={$rust_port}
+ENV RUST_PORT=${rust_port}
 ENV RUST_PASSWORD=${rust_password}
 
 CMD ["npm", "start"]
