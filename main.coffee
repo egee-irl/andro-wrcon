@@ -18,13 +18,13 @@ discordClient = (token) ->
     console.log('Connected to Discord Server')
     debugChannel = discord.channels.find('name', 'debug')
     rustChannel = discord.channels.find('name', 'rust-server')
-    helpers = new Helpers()
     wRcon(process.env.RUST_IP, process.env.RUST_PORT, process.env.RUST_PASSWORD)
     new DiscordEvents(discord)
 
 wRcon = (rustip, rustport, password) ->
-  wRcon = new WebRcon(rustip, 'rustport')
+  wRcon = new WebRcon(rustip, rustport)
   wRcon.connect(password)
   new RustEvents(wRcon, helpers, discord)
 
-discordClient(process.env.DISCORD_TOKEN)
+helpers = new Helpers()
+discordClient(process.env.PYGUY)
