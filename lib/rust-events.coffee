@@ -1,6 +1,10 @@
+debugChannel = null
+rustChannel = null
+
 class RustEvents
   constructor: (wRcon, helpers, discord) ->
     debugChannel = discord.channels.find('name', 'debug')
+    rustChannel = discord.channels.find('name', 'rust-server')
 
     wRcon.on 'connect', -> console.log 'Connected to Rust Server'
     wRcon.on 'disconnect', ->
