@@ -10,7 +10,7 @@ helpers = null
 debugChannel = null
 rustChannel  = null
 
-discordClient = (token) ->
+bootStrap = (token) ->
   discord = new DiscordJs.Client()
   discord.login(token)
   .catch(console.error)
@@ -27,4 +27,4 @@ wRcon = (rustip, rustport, password) ->
   new RustEvents(wRcon, helpers, discord)
 
 helpers = new Helpers()
-discordClient(process.env.DISCORD_TOKEN)
+bootStrap(process.env.DISCORD_TOKEN)
