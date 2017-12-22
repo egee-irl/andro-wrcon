@@ -11,3 +11,7 @@ services:
         minecraft_ip: $MINECRAFT_IP
         minecraft_port: $MINECRAFT_PORT
         minecraft_password: $MINECRAFT_PASSWORD
+networks:
+  default:
+    external:
+      name: rustdocker_default
