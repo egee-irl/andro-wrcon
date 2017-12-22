@@ -1,5 +1,5 @@
-WebRcon = require('webrconjs')
 Rcon = require('simple-rcon')
+WebRcon = require('webrconjs')
 DiscordJs = require('discord.js')
 
 class ConnectionFactory
