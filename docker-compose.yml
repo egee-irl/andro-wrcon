@@ -1,4 +1,4 @@
-version: "3"
+version: "2.3"
 services:
   androgee:
     build:
@@ -8,4 +8,6 @@ services:
         rust_ip: $RUST_IP
         rust_port: $RUST_PORT
         rust_password: $RUST_PASSWORD
-
+        minecraft_ip: $MINECRAFT_IP
+        minecraft_port: $MINECRAFT_PORT
+        minecraft_password: $MINECRAFT_PASSWORD
