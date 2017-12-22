@@ -27,6 +27,6 @@
     "array-difference": "0.0.1",
     "coffeelint": "^2.0.7",
     "discord.js": "^11.2.1",
-    "modern-rcon": "^1.0.3"
+    "simple-rcon": "^0.3.1"
   }
 }

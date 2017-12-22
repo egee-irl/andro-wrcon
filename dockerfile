@@ -4,6 +4,7 @@ FROM node:8.6.0
 RUN adduser androgee
 WORKDIR /home/androgee
 COPY main.coffee main.coffee
+COPY ./lib/connection-factory.coffee lib/connection-factory.coffee
 COPY ./lib/discord-events.coffee lib/discord-events.coffee
 COPY ./lib/helpers.coffee lib/helpers.coffee
 COPY ./lib/rust-events.coffee lib/rust-events.coffee
