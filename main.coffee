@@ -31,7 +31,7 @@ minecraftRequestLoop = (connFactory) ->
       diff = difference(minecraftPlayers.sort(), playerList.sort())
       if playerList.length > minecraftPlayers.length
         msg = "Player(s) Joined: #{diff}"
-        mcChannel = helpers.discordChannel('debug')
+        mcChannel = helpers.discordChannel('minecraft-server')
         mcChannel.send(msg)
         console.log msg
       minecraftPlayers = playerList
