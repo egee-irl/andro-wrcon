@@ -16,8 +16,8 @@ class Helpers
                                           process.env.MINECRAFT_PASSWORD)
     minecraft.exec('list', (res) ->
       playerList = res.body
-      debugChannel = discord.channels.find('name', 'debug')
-      debugChannel.send(res.body)).connect()
+      mcChannel = discord.channels.find('name', 'minecraft-server')
+      mcChannel.send(res.body)).connect()
     minecraft.on('error', (err) ->
       console.log "something in the MC loop shit out: #{err}")
 
