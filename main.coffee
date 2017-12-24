@@ -18,7 +18,7 @@ bootstrap = () ->
                                           process.env.RUST_PORT,
                                           process.env.RUST_PASSWORD)
     new RustEvents(rust, helpers)
-    new DiscordEvents(discord)
+    new DiscordEvents(discord, helpers, connFactory)
 
 minecraftRequestLoop = (connFactory) ->
   minecraft = connFactory.getRconConnection(process.env.MINECRAFT_IP,
