@@ -6,7 +6,6 @@ COPY ./lib/discord-events.coffee lib/discord-events.coffee
 COPY ./lib/helpers.coffee lib/helpers.coffee
 COPY ./lib/rust-events.coffee lib/rust-events.coffee
 COPY package.json package.json
-USER androgee
 RUN npm install
 
 ARG discord_token
