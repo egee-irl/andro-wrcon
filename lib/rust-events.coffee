@@ -1,5 +1,5 @@
 class RustEvents
-  constructor: (wRcon, helpers) ->
+  constructor: (wRcon) ->
     debugChannel = helpers.discordChannel('debug')
     rustChannel = helpers.discordChannel('rust-server')
 
