@@ -1,5 +1,4 @@
 Rcon = require('simple-rcon')
-WebRcon = require('webrconjs')
 DiscordJs = require('discord.js')
 
 class ConnectionFactory
@@ -8,10 +7,7 @@ class ConnectionFactory
     discord.login(token)
     .catch(console.error) #TODO: Stop the process when error is caught
     return discord
-  getWrconConnection: (ip, port, password) ->
-    wRcon = new WebRcon(ip, port)
-    wRcon.connect(password)
-    return wRcon
+
   getRconConnection: (ip, port, password) ->
     return new Rcon({host: ip, port: port, password: password})
 
